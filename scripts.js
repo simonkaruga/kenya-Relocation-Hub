@@ -1,4 +1,4 @@
-// ===== Carousel / Testimonials Auto + Manual =====
+// ===== Carousel / Testimonials =====
 let current = 0;
 const items = document.querySelectorAll(".carousel-item");
 const totalItems = items.length;
@@ -33,16 +33,46 @@ faqButtons.forEach(btn => {
   });
 });
 
-// ===== Currency Converter =====
-function convert() {
-  const usd = parseFloat(document.getElementById("usd").value);
-  const rate = 150; // USD → KES rate
-  if(!isNaN(usd)) {
-    document.getElementById("result").innerText = `${usd} USD = ${usd*rate} KES`;
-  } else {
-    document.getElementById("result").innerText = "Enter a valid number";
+// ===== LIVE Currency Converter =====
+let exchangeRate = null;
+
+// Fetch USD → KES rate on page load
+async function fetchRate() {
+  try {
+    const response = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=KES");
+    const data = await response.json();
+    exchangeRate = data.rates.KES;
+    console.log("USD → KES rate:", exchangeRate);
+  } catch (error) {
+    console.error("Failed to fetch rate:", error);
+    exchangeRate = null;
   }
 }
+
+// Convert USD to KES
+async function convert() {
+  const usdAmount = parseFloat(document.getElementById("usd").value);
+  const result = document.getElementById("result");
+
+  if (isNaN(usdAmount)) {
+    result.innerText = "Enter a valid number";
+    return;
+  }
+
+  if (exchangeRate === null) {
+    result.innerText = "Fetching live rate…";
+    await fetchRate();
+    if (exchangeRate === null) {
+      result.innerText = "Failed to fetch rate. Try again later.";
+      return;
+    }
+  }
+
+  result.innerText = `${usdAmount} USD = ${(usdAmount * exchangeRate).toLocaleString()} KES`;
+}
+
+// Fetch rate immediately on page load
+fetchRate();
 
 // ===== Neighborhoods =====
 const neighborhoods = [
@@ -67,9 +97,7 @@ neighborhoods.forEach(n => {
 // Fade-in neighborhoods on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
+    if(entry.isIntersecting) entry.target.classList.add("visible");
   });
 }, { threshold: 0.2 });
 
