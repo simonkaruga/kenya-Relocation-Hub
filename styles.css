@@ -49,19 +49,11 @@ nav {
   align-items: center;
   gap: 0.5rem;
 }
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
+.logo-text { display: flex; flex-direction: column; line-height: 1.2; }
 .logo-main { font-size: 1.3rem; }
 .logo-sub { font-size: 0.8rem; color: var(--gray); font-weight: 500; }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   text-decoration: none;
   color: var(--dark);
@@ -82,9 +74,8 @@ nav {
 .nav-links a:hover {
   color: var(--primary);
 }
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover::after { width: 100%; }
+
 .cta-btn {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: var(--white);
@@ -103,7 +94,7 @@ nav {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -113,12 +104,12 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.55);
+  filter: brightness(0.75); /* lighter overlay */
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+  background: rgba(0,0,0,0.25); /* lighter overlay */
 }
 .hero-content {
   position: absolute;
@@ -129,7 +120,7 @@ nav {
   padding: 1rem 2rem;
 }
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -139,14 +130,12 @@ nav {
   animation: fadeInUp 1s forwards;
 }
 .hero-subtitle { font-size: 1.5rem; margin-bottom: 1rem; opacity:0; transform:translateY(20px);}
-.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; opacity:0; transform:translateY(20px);}
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; opacity:0; transform:translateY(20px); }
 
-/* Animate hero text delays */
 .animate-text.delay { animation: fadeInUp 1s 0.5s forwards; }
 .animate-text.delay2 { animation: fadeInUp 1s 1s forwards; }
 .animate-text.delay3 { animation: fadeInUp 1s 1.5s forwards; }
 
-/* Hero buttons */
 .btn-primary, .btn-secondary {
   font-weight: 600;
   border-radius: 50px;
@@ -159,13 +148,12 @@ nav {
 .btn-secondary { border: 2px solid var(--white); background: transparent; color: var(--white);}
 .btn-secondary:hover { background: var(--white); color: var(--primary); }
 
-/* Scroll indicator */
 .scroll-indicator { margin-top: 2rem; font-size: 1.2rem; animation: bounce 1.5s infinite; }
 
 /* Sections */
 section { padding: 5rem 2rem; }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: var(--light);}
-.section-subtitle { text-align:center; font-size:1.2rem; color:var(--light); margin-bottom:2rem; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary);}
+.section-subtitle { text-align:center; font-size:1.2rem; color:var(--gray); margin-bottom:2rem; }
 
 /* Services */
 .services-grid {
@@ -229,14 +217,18 @@ section { padding: 5rem 2rem; }
 }
 .neighborhood-card {
   background: var(--white);
-  padding:1.5rem;
+  padding:1rem;
   border-radius:12px;
   box-shadow:0 8px 25px var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
-  opacity:0;
-  transform: translateY(20px);
+  opacity:1;
 }
-.neighborhood-card.visible { opacity:1; transform:translateY(0); }
+.neighborhood-card img {
+  width:100%;
+  border-radius:10px;
+  margin-bottom:0.5rem;
+}
+.neighborhood-card h4 { color: var(--primary); margin-bottom:0.5rem; }
 
 /* Carousel */
 .carousel { position: relative; overflow: hidden; height: 120px; }
@@ -263,12 +255,20 @@ section { padding: 5rem 2rem; }
   background:var(--light);
   border:none;
   cursor:pointer;
+  transition: all var(--transition);
+}
+/* Highlight first two questions */
+.faq-item:nth-of-type(1) .faq-question,
+.faq-item:nth-of-type(2) .faq-question {
+  background: var(--primary);
+  color: #fff;
 }
 .faq-answer { display:none; padding:1rem; }
 
 /* Currency Converter */
-#usd { padding:0.75rem 1rem; border-radius:10px; border:1px solid #ccc; width:120px; margin-right:0.5rem; }
-.currency button { padding:0.75rem 1.25rem; border:none; border-radius:50px; background:var(--primary); color:#fff; cursor:pointer; }
+.currency { text-align:center; }
+#usd { padding:0.75rem 1rem; border-radius:10px; border:1px solid #ccc; width:150px; margin-right:0.5rem; font-size:1.2rem; }
+.currency button { padding:0.75rem 1.5rem; border:none; border-radius:50px; background:var(--primary); color:#fff; cursor:pointer; font-size:1.1rem; margin-top:0.5rem; }
 
 /* Contact */
 .contact { background: var(--primary); color: var(--white); text-align:center; padding:5rem 2rem; }

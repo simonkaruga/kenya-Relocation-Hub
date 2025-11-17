@@ -36,7 +36,7 @@ faqButtons.forEach(btn => {
 // ===== LIVE Currency Converter =====
 let exchangeRate = null;
 
-// Fetch USD → KES rate on page load
+// Fetch USD → KES rate
 async function fetchRate() {
   try {
     const response = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=KES");
@@ -76,32 +76,26 @@ fetchRate();
 
 // ===== Neighborhoods =====
 const neighborhoods = [
-  {name:"Westlands", malls:"Sarit Centre, Westgate Mall", schools:"Braeburn, Peponi", hospitals:"MP Shah, Nairobi Hospital"},
-  {name:"Kilimani", malls:"Yaya Centre, Junction Mall", schools:"Strathmore, Hillcrest", hospitals:"Aga Khan, Avenue Hospital"},
-  {name:"Karen", malls:"The Hub, Junction", schools:"Karen Academy, Brookhouse", hospitals:"Karen Hospital"},
-  {name:"Runda", malls:"Village Market", schools:"Rosslyn Academy", hospitals:"Nairobi Hospital"},
-  {name:"Lavington", malls:"Lavington Mall", schools:"St Austin, Loretto", hospitals:"The Nairobi Hospital"}
+  {name:"Runda", image:"images/runda.jpg", malls:"Village Market", schools:"Rosslyn Academy", hospitals:"Nairobi Hospital"},
+  {name:"Kilimani", image:"images/kilimani.jpg", malls:"Yaya Centre, Junction Mall", schools:"Strathmore, Hillcrest", hospitals:"Aga Khan, Avenue Hospital"},
+  {name:"Kileleshwa", image:"images/kileleshwa.jpg", malls:"Lavington Mall", schools:"St. Marys, Loreto", hospitals:"MP Shah"},
+  {name:"Karen", image:"images/karen.jpg", malls:"The Hub, Junction", schools:"Karen Academy, Brookhouse", hospitals:"Karen Hospital"},
+  {name:"Westlands", image:"images/westlands.jpg", malls:"Sarit Centre, Westgate Mall", schools:"Braeburn, Peponi", hospitals:"Nairobi Hospital"},
+  {name:"Lavington", image:"images/lavington.jpg", malls:"Lavington Mall", schools:"St Austin, Loretto", hospitals:"The Nairobi Hospital"}
 ];
 
 const grid = document.getElementById("neighborhoods-grid");
 neighborhoods.forEach(n => {
   const div = document.createElement("div");
   div.className = "neighborhood-card";
-  div.innerHTML = `<h4>${n.name}</h4>
-                   <p><strong>Malls:</strong> ${n.malls}</p>
-                   <p><strong>Schools:</strong> ${n.schools}</p>
-                   <p><strong>Hospitals:</strong> ${n.hospitals}</p>`;
+  div.innerHTML = `
+    <img src="${n.image}" alt="${n.name}">
+    <h4>${n.name}</h4>
+    <p><strong>Malls:</strong> ${n.malls}</p>
+    <p><strong>Schools:</strong> ${n.schools}</p>
+    <p><strong>Hospitals:</strong> ${n.hospitals}</p>`;
   grid.appendChild(div);
 });
-
-// Fade-in neighborhoods on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add("visible");
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll(".neighborhood-card").forEach(card => observer.observe(card));
 
 // ===== Smooth Scroll for Navigation =====
 document.querySelectorAll('nav a').forEach(anchor => {
