@@ -39,7 +39,7 @@ let exchangeRate = null;
 // Fetch USD → KES rate
 async function fetchRate() {
   try {
-    const response = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=KES");
+    const response = await fetch("https://api.exchangerate-api.com/v4/latest/latest?base=USD&symbols=KES");
     const data = await response.json();
     exchangeRate = data.rates.KES;
     console.log("USD → KES rate:", exchangeRate);
