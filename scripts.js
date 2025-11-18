@@ -76,7 +76,7 @@ fetchRate();
 
 // ===== Neighborhoods =====
 const neighborhoods = [
-  {name:"Runda", image:"images/runda.jpg", malls:"Village Market", schools:"Rosslyn Academy", hospitals:"Nairobi Hospital"},
+  {name:"Runda", image:"images/Runda.jpg", malls:"Village Market", schools:"Rosslyn Academy", hospitals:"Nairobi Hospital"},
   {name:"Kilimani", image:"images/kilimani.jpg", malls:"Yaya Centre, Junction Mall", schools:"Strathmore, Hillcrest", hospitals:"Aga Khan, Avenue Hospital"},
   {name:"Kileleshwa", image:"images/kileleshwa.jpg", malls:"Lavington Mall", schools:"St. Marys, Loreto", hospitals:"MP Shah"},
   {name:"Karen", image:"images/karen.jpg", malls:"The Hub, Junction", schools:"Karen Academy, Brookhouse", hospitals:"Karen Hospital"},
