@@ -36,10 +36,10 @@ faqButtons.forEach(btn => {
 // ===== LIVE Currency Converter =====
 let exchangeRate = null;
 
-// Fetch USD → KES rate
+// 🔥 FIXED API URL (your previous URL was invalid)
 async function fetchRate() {
   try {
-    const response = await fetch("https://api.exchangerate-api.com/v4/latest/latest?base=USD&symbols=KES");
+    const response = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
     const data = await response.json();
     exchangeRate = data.rates.KES;
     console.log("USD → KES rate:", exchangeRate);
