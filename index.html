@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kenya Relocation Hub & Realty - Nairobi Living</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Kenya Relocation Hub & Realty helps you relocate, find homes, and settle in Nairobi with ease.">
   <meta name="keywords" content="Kenya, Nairobi, relocation, real estate, property, services">
@@ -11,11 +12,10 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <div class="nav-container">
     <div class="logo">
-      <span>🏠</span>
+      <div class="logo-initials">KR</div>
       <div class="logo-text">
         <span class="logo-main">KENYA RELOCATION HUB</span>
         <span class="logo-sub">& Realty</span>
@@ -25,37 +25,36 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
-      <li><a href="#neighborhoods">Neighborhoods</a></li>
+      <li><a href="#success-stories">Stories</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="cta-btn">Get Started</a>
+    <a href="#contact" class="btn-primary" aria-label="Get started with relocation services">Get Started</a> 
   </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero" id="home">
-  <img src="images/nairobi.jpg" alt="Nairobi Skyline" class="hero-img">
+  <img src="images/nairobi.jpg" alt="Nairobi Skyline at Sunset" class="hero-img" loading="lazy">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="animate-text">KENYA RELOCATION HUB & REALTY</h1>
     <p class="hero-subtitle animate-text delay">Welcome to Your New Home in Nairobi</p>
     <p class="animate-text delay2">Helping You Move, Settle, and Feel at Home in Kenya's Vibrant Capital</p>
     <div class="hero-btns animate-text delay3">
-      <a href="#services" class="btn-primary">Explore Services</a>
-      <a href="https://wa.me/254797033513" class="btn-secondary" target="_blank">Contact Us on WhatsApp</a>
+      <a href="#services" class="btn-primary" aria-label="Explore our full list of services">Explore Services</a>
+      <a href="https://wa.me/254797033513" class="btn-secondary" target="_blank" aria-label="Contact us on WhatsApp">Contact Us on WhatsApp</a>
     </div>
     <div class="scroll-indicator">⬇ Scroll</div>
   </div>
 </section>
 
-<!-- Services Section -->
 <section class="services" id="services">
   <div class="container">
     <h2 class="section-title">Our Services</h2>
     <p class="section-subtitle">Comprehensive relocation and property services tailored for you</p>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">🏡</div>
+        <div class="service-icon">RE</div>
         <h3>Property Search & Real Estate</h3>
         <ul>
           <li>Find your perfect home to rent or buy</li>
@@ -65,7 +64,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon">✈️</div>
+        <div class="service-icon">RH</div>
         <h3>Relocation & Lifestyle Concierge</h3>
         <ul>
           <li>Airport pickup and transfers</li>
@@ -75,7 +74,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon">🔧</div>
+        <div class="service-icon">CS</div>
         <h3>Ongoing Support & Management</h3>
         <ul>
           <li>Local fixer services (repairs, cleaning)</li>
@@ -88,7 +87,6 @@
   </div>
 </section>
 
-<!-- Packages Section -->
 <section class="pricing" id="packages">
   <div class="container">
     <h2 class="section-title">Our Packages</h2>
@@ -104,7 +102,7 @@
           <li>Neighborhood orientation</li>
           <li>Local essentials setup</li>
         </ul>
-        <a href="https://wa.me/254797033513" class="cta-btn" target="_blank">Get Started</a>
+        <a href="https://wa.me/254797033513" class="btn-primary" target="_blank" aria-label="Start with the Relocation Setup package">Get Started</a>
       </div>
 
       <div class="pricing-card featured premium">
@@ -119,7 +117,7 @@
           <li>Legal & investment guidance</li>
           <li>Expat community networking events</li>
         </ul>
-        <a href="https://wa.me/254797033513" class="cta-btn" target="_blank">Go Premium</a>
+        <a href="https://wa.me/254797033513" class="btn-primary" target="_blank" aria-label="Select the Premium package">Go Premium</a>
       </div>
 
       <div class="pricing-card">
@@ -132,13 +130,126 @@
           <li>Concierge services</li>
           <li>Community networking</li>
         </ul>
-        <a href="https://wa.me/254797033513" class="cta-btn" target="_blank">Inquire</a>
+        <a href="https://wa.me/254797033513" class="btn-primary" target="_blank" aria-label="Inquire about custom add-on services">Inquire</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Neighborhoods Section -->
+<section class="booking-consultation" id="book-consultation">
+    <div class="container">
+        <h2 class="section-title">Book Your 1-on-1 Consultation</h2>
+        <p class="section-subtitle">Schedule a dedicated video or phone call with our relocation expert, Simon Njoroge.</p>
+
+        <div class="booking-container">
+            <div class="booking-step active" id="step-1">
+                <h3>1. Select Consultation Type</h3>
+                <div class="service-options">
+                    <div class="option-card" data-service="relocation-setup" data-price="50">
+                        <h4>Relocation Setup Call</h4>
+                        <p>Discuss temporary housing, SIM card, M-Pesa setup, and initial Nairobi orientation.</p>
+                        <span class="price-tag">$50 (30 min)</span>
+                    </div>
+                    <div class="option-card" data-service="property-investment" data-price="90">
+                        <h4>Property & Investment Strategy</h4>
+                        <p>Detailed discussion on buying, renting long-term, and legal due diligence in Kenya.</p>
+                        <span class="price-tag">$90 (60 min)</span>
+                    </div>
+                </div>
+                <button class="btn-primary next-step" disabled aria-label="Proceed to time slot selection">Select Time Slot →</button>
+            </div>
+
+            <div class="booking-step" id="step-2">
+                <h3>2. Choose Date and Time</h3>
+                <p class="selected-service-display"></p>
+                <div class="calendar-wrapper">
+                    <div id="calendar-widget" class="calendar-placeholder">
+                        <p>🗓️ Calendar Integration Required</p>
+                        <p>For the demo, let's manually select a date:</p>
+                        <input type="date" id="consultation-date" required>
+                        <select id="consultation-time" required>
+                            <option value="">Select Time Slot</option>
+                            <option value="10:00">10:00 AM EAT</option>
+                            <option value="11:30">11:30 AM EAT</option>
+                            <option value="14:00">02:00 PM EAT</option>
+                            <option value="15:30">03:30 PM EAT</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-secondary prev-step" aria-label="Go back to service selection">← Back</button>
+                <button class="btn-primary next-step" id="review-booking-btn" disabled aria-label="Proceed to review and payment">Review & Pay →</button>
+            </div>
+
+            <div class="booking-step" id="step-3">
+                <h3>3. Confirm Details and Pay</h3>
+                <div class="review-details">
+                    <h4>Your Booking Summary:</h4>
+                    <p>Service: <strong id="summary-service"></strong></p>
+                    <p>Date: <strong id="summary-date"></strong></p>
+                    <p>Time: <strong id="summary-time"></strong></p>
+                    <p>Total Cost: <strong id="summary-price"></strong></p>
+                </div>
+
+                <form id="payment-form" class="contact-form">
+                    <input type="hidden" name="service_type" id="form-service-type">
+                    <input type="hidden" name="consultation_date" id="form-consultation-date">
+                    <input type="hidden" name="consultation_time" id="form-consultation-time">
+                    
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+                    <input type="email" name="email" placeholder="Your Email (for notification)" required>
+                    <input type="tel" name="phone" placeholder="WhatsApp Number (e.g., +254 7XX XXX XXX)" required>
+                    <textarea name="notes" placeholder="Any specific questions you have for the consultation?" rows="2"></textarea>
+                    
+                    <div class="payment-method-placeholder">
+                        <p>🔒 Secure Payment Gateway Integration Required</p>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" id="confirm-booking-btn" aria-label="Confirm booking and proceed to payment">Confirm Booking & Pay</button>
+                </form>
+
+                <button class="btn-secondary prev-step" aria-label="Go back to date and time selection">← Back to Time</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="success-stories" id="success-stories">
+    <div class="container">
+        <h2 class="section-title">Client Success Stories & Case Studies</h2>
+        <p class="section-subtitle">Real results from families and investors who successfully relocated and settled in Nairobi with our guidance.</p>
+
+        <div class="stories-filters">
+            <button class="btn-filter active" data-filter="all">All Stories</button>
+            <button class="btn-filter" data-filter="family">Family Relocation</button>
+            <button class="btn-filter" data-filter="investment">Property Investment</button>
+            <button class="btn-filter" data-filter="expat">Expat Professional</button>
+        </div>
+
+        <div class="case-study-grid" id="case-study-grid"></div>
+        
+    </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="container">
+    <h2 class="section-title">Nairobi Living: Guides & Insights</h2>
+    <p class="section-subtitle">Expert articles on relocating to Kenya, expat life, and neighborhood breakdowns.</p>
+    
+    <div class="blog-filters">
+        <button class="btn-filter active" data-filter="all">All Articles</button>
+        <button class="btn-filter" data-filter="expat">Expat Tips</button>
+        <button class="btn-filter" data-filter="neighborhood">Neighborhood Guides</button>
+        <button class="btn-filter" data-filter="legal">Legal & Finance</button>
+    </div>
+
+    <div class="blog-grid" id="blog-articles-grid"></div>
+
+    <div class="load-more-container">
+        <button class="btn-primary" id="load-more-btn" style="display: none;">Load More Articles</button>
+    </div>
+  </div>
+</section>
+
 <section class="neighborhoods" id="neighborhoods">
   <div class="container">
     <h2 class="section-title">Neighborhoods & Amenities</h2>
@@ -147,94 +258,120 @@
   </div>
 </section>
 
-<!-- Testimonials Section -->
 <section class="testimonials">
   <div class="container">
     <h2 class="section-title">What Our Clients Say</h2>
     <div class="carousel">
-      <div class="carousel-item active">⭐️⭐️⭐️⭐️⭐️ "Great service! Helped me relocate smoothly to Nairobi." – Jane D.</div>
-      <div class="carousel-item">⭐️⭐️⭐️⭐️⭐️ "Highly professional and transparent in all dealings." – Mark T.</div>
-      <div class="carousel-item">⭐️⭐️⭐️⭐️⭐️ "Loved the neighborhood guides, made settling easy!" – Sarah K.</div>
+      <div class="carousel-item active">⭐⭐⭐⭐⭐ "Great service! Helped me relocate smoothly to Nairobi." – Jane D.</div>
+      <div class="carousel-item">⭐⭐⭐⭐⭐ "Highly professional and transparent in all dealings." – Mark T.</div>
+      <div class="carousel-item">⭐⭐⭐⭐⭐ "Loved the neighborhood guides, made settling easy!" – Sarah K.</div>
     </div>
     <div class="carousel-controls">
-      <button id="prev">Prev</button>
-      <button id="next">Next</button>
+      <button id="prev" aria-label="Previous testimonial">Previous</button>
+      <button id="next" aria-label="Next testimonial">Next</button>
     </div>
   </div>
 </section>
 
-<!-- FAQ Section -->
 <section class="faq">
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <button class="faq-question">How long does relocation take?</button>
+    <details class="faq-item">
+      <summary class="faq-question">How long does relocation take?</summary>
       <div class="faq-answer">It typically takes 1-2 weeks for full relocation services.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Do you handle legal paperwork?</button>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">Do you handle legal paperwork?</summary>
       <div class="faq-answer">Yes, we handle all legal and property documents.</div>
-    </div>
+    </details>
+    <details class="faq-item">
+        <summary class="faq-question">Can I buy property as a foreigner?</summary>
+        <div class="faq-answer">Yes, foreign nationals can purchase property in Kenya, but there are certain restrictions on agricultural land. We guide you through the full process.</div>
+    </details>
   </div>
 </section>
 
-<!-- Currency Converter Section -->
 <section class="currency">
   <div class="container">
     <h2 class="section-title">Currency Converter</h2>
     <p>Convert USD to KES (live rate)</p>
-    <input type="number" id="usd" placeholder="USD">
-    <button onclick="convert()">Convert</button>
+    <input type="number" id="usd" placeholder="USD Amount" aria-label="Amount in USD to convert">
+    <button onclick="convert()" id="convert-btn" aria-label="Convert USD amount to KES">Convert</button>
     <p id="result"></p>
   </div>
 </section>
 
-<!-- Contact Section -->
 <section class="contact" id="contact">
   <div class="container">
-    <h2 class="section-title">Get Started Today</h2>
-    <p class="section-subtitle">Move to Nairobi with confidence — we make it simple, safe, and welcoming</p>
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <h3>WhatsApp</h3>
-        <p>+254 797 033 513</p>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📧</div>
-        <h3>Email</h3>
-        <p>kenyarelocationhub@gmail.com</p>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <h3>Location</h3>
-        <p>Nairobi, Kenya</p>
-      </div>
+    <h2 class="section-title">Ready to Move to Nairobi?</h2>
+    <p class="section-subtitle">Send us a message and receive a personalized consultation within 24 hours.</p>
+    
+    <div class="contact-form-container">
+        <form class="contact-form" action="SUBMIT_TO_BACKEND_ENDPOINT" method="POST">
+            <input type="text" name="name" placeholder="Your Full Name" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <input type="tel" name="phone" placeholder="WhatsApp Number (e.g., +254 7XX XXX XXX)">
+            <textarea name="message" placeholder="Tell us about your relocation needs (e.g., Budget, desired neighborhood, timeline)" rows="4" required></textarea>
+            <button type="submit" class="btn-primary" aria-label="Submit relocation inquiry">Submit Inquiry</button>
+        </form>
     </div>
-    <div style="margin-top: 2rem;">
-      <a href="https://wa.me/254797033513" class="btn-primary" target="_blank">WhatsApp Us Now</a>
+
+    <div class="contact-details-list">
+        <div class="contact-item">
+          <div class="contact-icon">Call</div>
+          <p><a href="tel:+254797033513">+254 797 033 513</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">Mail</div>
+          <p><a href="mailto:kenyarelocationhub@gmail.com">kenyarelocationhub@gmail.com</a></p>
+        </div>
     </div>
+    
     <div style="margin-top:2rem;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199834.8945817775!2d36.71919743305997!3d-1.286389288857285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10a4f4c8a2b1%3A0x95f486ee16c2aa7b!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1699944063562!5m2!1sen!2sus" width="100%" height="350" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe 
+        src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Nairobi+Kenya&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+        width="100%" 
+        height="350" 
+        style="border:0; border-radius:10px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </section>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254797033513" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/254797033513" class="whatsapp-float" target="_blank" aria-label="Chat with us instantly on WhatsApp">Chat</a>
 
-<!-- Footer -->
 <footer>
-  <div class="container">
-    <h3>Kenya Relocation Hub & Realty</h3>
-    <p style="margin: 1rem 0;">Founded by Simon Njoroge</p>
-    <div class="social-links">
-      <a href="https://instagram.com/kenya_relocation_hub" target="_blank">📸 Instagram</a>
-      <a href="https://wa.me/254797033513" target="_blank">💬 WhatsApp</a>
-      <a href="mailto:kenyarelocationhub@gmail.com">📧 Email</a>
+  <div class="container footer-content">
+    <div class="footer-links-group">
+        <h4>Site Map</h4>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#neighborhoods">Neighborhoods</a></li>
+        </ul>
     </div>
-    <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Kenya Relocation Hub & Realty. All rights reserved.</p>
+    <div class="footer-links-group">
+        <h4>Contact</h4>
+        <ul>
+            <li><a href="#contact">Inquire Now</a></li>
+            <li><a href="https://wa.me/254797033513" target="_blank">WhatsApp</a></li>
+            <li><a href="mailto:kenyarelocationhub@gmail.com">Email Us</a></li>
+        </ul>
+    </div>
+    <div class="footer-details">
+        <h3>Kenya Relocation Hub & Realty</h3>
+        <p style="margin: 0.5rem 0;">Founded by Simon Njoroge</p>
+        <div class="social-links">
+          <a href="https://instagram.com/kenya_relocation_hub" target="_blank" aria-label="Instagram Link">Instagram</a>
+          <a href="https://wa.me/254797033513" target="_blank" aria-label="WhatsApp Link">WhatsApp</a>
+        </div>
+    </div>
   </div>
+  <p class="copyright">© 2025 Kenya Relocation Hub & Realty. All rights reserved.</p>
 </footer>
 
 <script src="scripts.js"></script>
