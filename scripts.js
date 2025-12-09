@@ -709,10 +709,15 @@ criticalImages.forEach(src => {
   document.head.appendChild(link);
 });
 
-// Service Worker for offline support (optional)
+// Service Worker for offline support
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // Uncomment to enable service worker
-    // navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('/worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered:', registration);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
   });
 }
