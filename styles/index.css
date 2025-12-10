@@ -1,0 +1,48 @@
+/* ========================================
+   KENYA RELOCATION HUB - MASTER STYLESHEET
+   Modular CSS Architecture
+   ======================================== */
+
+/* Import all CSS modules in order */
+
+/* 1. Variables & Base */
+@import url('./01-variables.css');
+
+/* 2. Animations */
+@import url('./02-animations.css');
+
+/* 3. Loader & Navigation */
+@import url('./03-loader-nav.css');
+
+/* 4. Hero Section */
+@import url('./04-hero.css');
+
+/* 5. Common Containers & Utilities */
+@import url('./05-common.css');
+
+/* 6. Services Section */
+@import url('./06-services.css');
+
+/* 7. Value Proposition Section */
+@import url('./07-value-prop.css');
+
+/* 8. Pricing Section */
+@import url('./08-pricing.css');
+
+/* 9. Consultation Section */
+@import url('./09-consultation.css');
+
+/* 10. Success Stories */
+@import url('./10-stories.css');
+
+/* 11. Blog Section */
+@import url('./11-blog.css');
+
+/* 12. Neighborhoods */
+@import url('./12-neighborhoods.css');
+
+/* 13. Utilities (Testimonials, FAQ, Currency, Contact, Footer, etc.) */
+@import url('./13-utilities.css');
+
+/* 14. Responsive Design & Print Styles */
+@import url('./14-responsive.css');

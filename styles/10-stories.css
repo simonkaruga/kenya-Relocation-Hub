@@ -1,0 +1,134 @@
+/* ========== SUCCESS STORIES ========== */
+.success-stories-modern {
+  background: var(--white);
+}
+
+.stories-filters-modern,
+.blog-filters-modern {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.filter-btn-modern {
+  background: transparent;
+  color: var(--gray);
+  border: 2px solid rgba(0,0,0,0.1);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filter-btn-modern:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn-modern.active {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.stories-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 3rem;
+}
+
+.story-card-modern {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-slow);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  border-top: 5px solid var(--primary);
+}
+
+.story-card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.story-card-header {
+  padding: 2rem;
+}
+
+.story-tag {
+  display: inline-block;
+  background: rgba(196,30,58,0.1);
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.story-card-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.story-client-name {
+  color: var(--gray);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.before-after {
+  background: rgba(196,30,58,0.03);
+  padding: 1.8rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.before-after > div {
+  text-align: center;
+}
+
+.before-after strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.before-after span {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.story-summary {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.story-summary p {
+  color: var(--gray);
+  line-height: 1.6;
+}
