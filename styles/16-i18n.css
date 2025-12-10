@@ -1,0 +1,114 @@
+/* ========================================
+   MULTI-LANGUAGE SUPPORT
+   Language switcher & RTL fallback
+   ======================================== */
+
+.language-switcher {
+  position: fixed;
+  top: 80px;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: var(--z-dropdown);
+  background: var(--white);
+  padding: 0.4rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--gray);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all var(--transition-base);
+}
+
+.lang-btn.active {
+  background: var(--accent-gold);
+  color: var(--dark);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(196, 30, 58, 0.1);
+  color: var(--primary);
+}
+
+/* Language-specific adjustments */
+html[lang="fr"] {
+  font-family: 'Outfit', sans-serif;
+}
+
+html[lang="fr"] .section-title,
+html[lang="fr"] h1,
+html[lang="fr"] h2,
+html[lang="fr"] h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* RTL support for Arabic, Hebrew, etc. */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .section-num {
+  margin-left: var(--section-gap-sm);
+  margin-right: 0;
+}
+
+html[dir="rtl"] .blog-grid {
+  direction: rtl;
+}
+
+html[dir="rtl"] .alert,
+html[dir="rtl"] .notification {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+html[dir="rtl"] .service-card {
+  text-align: right;
+}
+
+/* Language-specific text sizing */
+html[lang="ja"],
+html[lang="zh"],
+html[lang="ko"] {
+  font-size: 16px;
+}
+
+html[lang="ja"] body,
+html[lang="zh"] body,
+html[lang="ko"] body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* German text expansion */
+html[lang="de"] p,
+html[lang="de"] span {
+  word-spacing: 0.1rem;
+}
+
+/* Japanese vertical text option */
+html[lang="ja"] .vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (max-width: 768px) {
+  .language-switcher {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

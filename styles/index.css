@@ -1,48 +1,145 @@
 /* ========================================
-   KENYA RELOCATION HUB - MASTER STYLESHEET
-   Modular CSS Architecture
+   MASTER STYLESHEET INDEX
+   Import all modular CSS files in correct order
    ======================================== */
 
-/* Import all CSS modules in order */
-
-/* 1. Variables & Base */
+/* Foundation */
 @import url('./01-variables.css');
-
-/* 2. Animations */
 @import url('./02-animations.css');
-
-/* 3. Loader & Navigation */
 @import url('./03-loader-nav.css');
-
-/* 4. Hero Section */
 @import url('./04-hero.css');
-
-/* 5. Common Containers & Utilities */
 @import url('./05-common.css');
 
-/* 6. Services Section */
-@import url('./06-services.css');
+/* Features */
+@import url('./06-map.css');
+@import url('./07-video.css');
+@import url('./08-blog.css');
+@import url('./09-awards.css');
+@import url('./10-chat.css');
+@import url('./11-lifestyle.css');
+@import url('./12-calculator.css');
+@import url('./13-newsletter.css');
+@import url('./15-sustainability.css');
 
-/* 7. Value Proposition Section */
-@import url('./07-value-prop.css');
-
-/* 8. Pricing Section */
-@import url('./08-pricing.css');
-
-/* 9. Consultation Section */
-@import url('./09-consultation.css');
-
-/* 10. Success Stories */
-@import url('./10-stories.css');
-
-/* 11. Blog Section */
-@import url('./11-blog.css');
-
-/* 12. Neighborhoods */
+/* Sections */
 @import url('./12-neighborhoods.css');
 
-/* 13. Utilities (Testimonials, FAQ, Currency, Contact, Footer, etc.) */
-@import url('./13-utilities.css');
-
-/* 14. Responsive Design & Print Styles */
+/* Responsive & Utilities */
 @import url('./14-responsive.css');
+@import url('./16-i18n.css');
+
+/* ========= UTILITY CLASSES ========= */
+
+.container-xl {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.section {
+  position: relative;
+}
+
+.section-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--dark);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-title em {
+  font-style: normal;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-center { align-items: center; justify-content: center; }
+.flex-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-1 { gap: 1rem; }
+.gap-2 { gap: 2rem; }
+.gap-3 { gap: 3rem; }
+
+/* Grid utilities */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Spacing */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+.px-1 { padding-left: 1rem; padding-right: 1rem; }
+.py-1 { padding-top: 1rem; padding-bottom: 1rem; }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary); }
+.text-accent { color: var(--accent-gold); }
+.text-muted { color: var(--gray); }
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-bold { font-weight: 700; }
+.font-900 { font-weight: 900; }
+.uppercase { text-transform: uppercase; }
+.italic { font-style: italic; }
+
+/* Badges & Pills */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: rgba(196, 30, 58, 0.1);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.gold {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--accent-gold);
+}
+
+/* Visibility */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+.invisible { visibility: hidden; }
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+}
+
+@media (min-width: 769px) {
+  .show-mobile { display: none; }
+}

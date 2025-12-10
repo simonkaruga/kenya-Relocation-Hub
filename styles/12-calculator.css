@@ -1,0 +1,248 @@
+/* ========================================
+   COST CALCULATOR
+   Advanced calculator for relocation budgeting
+   ======================================== */
+
+.calculator-section {
+  padding: var(--section-gap-lg) 0;
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.02) 0%, rgba(26, 26, 46, 0.05) 100%);
+}
+
+.calculator-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calculator-intro {
+  text-align: center;
+  margin-bottom: var(--section-gap-md);
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.calculator-inputs {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.calc-section {
+  margin-bottom: 2rem;
+}
+
+.calc-section:last-child {
+  margin-bottom: 0;
+}
+
+.calc-section-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(196, 30, 58, 0.1);
+}
+
+.calc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.calc-label {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+.calc-input {
+  padding: 0.8rem;
+  border: 1.5px solid rgba(196, 30, 58, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+}
+
+.calc-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
+.calc-slider-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.calc-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(196, 30, 58, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.calc-value {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+  min-width: 60px;
+}
+
+.calc-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+}
+
+.calc-checkbox input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-gold);
+}
+
+.calc-checkbox label {
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+.calculator-results {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  color: var(--white);
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.result-value {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+}
+
+.result-total {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  border-radius: var(--radius-sm);
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.result-total-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+
+.result-total-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+}
+
+.calc-notes {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+.calculator-export {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.export-btn {
+  flex: 1;
+  padding: 0.8rem;
+  background: var(--accent-gold);
+  color: var(--dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 768px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-inputs,
+  .calculator-results {
+    padding: 1.5rem;
+  }
+
+  .result-value {
+    font-size: 1.1rem;
+  }
+
+  .result-total-value {
+    font-size: 1.5rem;
+  }
+}

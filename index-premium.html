@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenya Relocation Hub & Realty | Premium Gateway to Nairobi</title>
+  <meta name="description" content="Premium relocation services to Nairobi, Kenya. Expert guidance for families, investors, and expats. Interactive map, video testimonials, blog, and cost calculator.">
+  <meta name="theme-color" content="#1A1A2E">
+  
+  <!-- Preload critical fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+
+<!-- Cursor follower (desktop only) -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="de">DE</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<!-- Page loader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">KR</div>
+    <div class="loader-text">Welcome to Nairobi</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">KR</span>
+      <span class="logo-text">
+        <span class="logo-main">Kenya Relocation</span>
+        <span class="logo-sub">Hub & Realty</span>
+      </span>
+    </a>
+    
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    
+    <a href="#contact" class="nav-cta">
+      <span>Start Journey</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="images/nairobi.jpg" alt="Nairobi Skyline" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span>Premium Relocation Services</span>
+      <span class="eyebrow-line"></span>
+    </div>
+    
+    <h1 class="hero-title">
+      <span class="title-line"><span>Your Gateway</span></span>
+      <span class="title-line"><span class="title-accent">to Nairobi</span></span>
+    </h1>
+    
+    <p class="hero-desc">Where seamless transitions meet extraordinary living experiences in Kenya's most vibrant capital</p>
+    
+    <div class="hero-actions">
+      <a href="#services" class="btn btn-primary">
+        <span>Explore Services</span>
+      </a>
+      <a href="https://wa.me/254797033513" class="btn btn-glass" target="_blank">
+        <span class="btn-icon">💬</span>
+        <span>WhatsApp Us</span>
+      </a>
+    </div>
+    
+    <div class="hero-stats">
+      <div class="stat" data-count="500">
+        <span class="stat-num">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Relocations</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat" data-count="98">
+        <span class="stat-num">0</span><span class="stat-plus">%</span>
+        <span class="stat-label">Satisfaction</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Support</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  
+  <div class="hero-social">
+    <a href="https://instagram.com/kenya_relocation_hub" target="_blank">IG</a>
+    <a href="https://wa.me/254797033513" target="_blank">WA</a>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-num">00</span>
+      <h2 class="section-title">Experience <em>Nairobi</em></h2>
+      <p class="section-desc">See our team and successful client journeys in action</p>
+    </header>
+    
+    <div class="testimonial-video">
+      <div class="testimonial-video-frame">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Kenya Relocation Hub - Why Choose Us" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="testimonial-overlay"></div>
+    </div>
+    
+    <div class="video-testimonials-grid">
+      <div class="video-testimonial-card">
+        <div class="video-thumb">
+          <img src="images/testimonial-1.jpg" alt="Client Testimonial">
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-info">
+          <div class="video-author">Jane & Michael Davidson</div>
+          <div class="video-title">From London to Karen</div>
+          <span class="video-duration">2:45</span>
+        </div>
+      </div>
+      
+      <div class="video-testimonial-card">
+        <div class="video-thumb">
+          <img src="images/testimonial-2.jpg" alt="Client Testimonial">
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-info">
+          <div class="video-author">Mark Thompson</div>
+          <div class="video-title">Solo Entrepreneur's Journey</div>
+          <span class="video-duration">3:12</span>
+        </div>
+      </div>
+      
+      <div class="video-testimonial-card">
+        <div class="video-thumb">
+          <img src="images/testimonial-3.jpg" alt="Client Testimonial">
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-info">
+          <div class="video-author">Sarah & David Kim</div>
+          <div class="video-title">Family Relocation Success</div>
+          <span class="video-duration">4:08</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE MAP SECTION -->
+<section class="map-section" id="map">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Explore <em>Neighborhoods</em></h2>
+      <p class="section-desc">Hover over each area to see pricing, amenities, and community details</p>
+    </header>
+    
+    <div class="map-container">
+      <div id="map" style="height: 500px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.16);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="section services" id="services">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">What We <em>Offer</em></h2>
+      <p class="section-desc">Comprehensive relocation solutions tailored to your needs</p>
+    </header>
+    
+    <div class="services-grid">
+      <article class="service-card">
+        <h3>Property Search</h3>
+        <p>Curated premium properties matched to your lifestyle</p>
+      </article>
+      <article class="service-card featured">
+        <div class="featured-tag">Most Popular</div>
+        <h3>Relocation Concierge</h3>
+        <p>End-to-end support from arrival to complete settlement</p>
+      </article>
+      <article class="service-card">
+        <h3>Ongoing Support</h3>
+        <p>Continuous assistance ensuring your Nairobi experience exceeds expectations</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <header class="blog-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Knowledge <em>Hub</em></h2>
+      <p class="section-desc">Expert insights on relocating, living, and investing in Kenya</p>
+    </header>
+    
+    <div class="blog-filters">
+      <button class="blog-filter-tag active" data-filter="all">All Articles</button>
+      <button class="blog-filter-tag" data-filter="legal">Legal</button>
+      <button class="blog-filter-tag" data-filter="lifestyle">Lifestyle</button>
+      <button class="blog-filter-tag" data-filter="investment">Investment</button>
+    </div>
+    
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- COST CALCULATOR SECTION -->
+<section class="calculator-section" id="calculator">
+  <div class="container">
+    <header class="calculator-intro">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Relocation <em>Cost Calculator</em></h2>
+      <p class="section-desc">Get a personalized budget estimate for your move to Nairobi</p>
+    </header>
+    
+    <div class="calculator-grid">
+      <div class="calculator-inputs">
+        <div class="calc-section">
+          <div class="calc-section-title">🏠 Housing Costs</div>
+          <div class="calc-input-group">
+            <label class="calc-label">Monthly Rent ($)</label>
+            <input type="number" id="monthlyRent" class="calc-input" value="2000" min="500" max="10000">
+          </div>
+          <div class="calc-input-group">
+            <label class="calc-label">Duration (Months)</label>
+            <div class="calc-slider-container">
+              <input type="range" id="rentalMonths" class="calc-slider" value="12" min="1" max="36">
+              <span class="calc-value" id="rentalDisplay">12</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="calc-section">
+          <div class="calc-section-title">🎓 Education & Extras</div>
+          <div class="calc-input-group">
+            <label class="calc-label">School Fees/Month ($)</label>
+            <input type="number" id="schoolFees" class="calc-input" value="0" min="0" max="5000">
+          </div>
+          <div class="calc-input-group">
+            <label class="calc-label">Relocation Cost ($)</label>
+            <input type="number" id="relocationCost" class="calc-input" value="500" min="100" max="5000">
+          </div>
+        </div>
+        
+        <div class="calc-section">
+          <div class="calc-section-title">🛡️ Insurance & Add-ons</div>
+          <div class="calc-checkbox">
+            <input type="checkbox" id="includeInsurance">
+            <label for="includeInsurance">Add Health Insurance (5% of rent)</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="calculator-results">
+        <div class="result-item">
+          <span class="result-label">Housing</span>
+          <span class="result-value" id="rentAmount">$24,000</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Education</span>
+          <span class="result-value" id="schoolAmount">$0</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Relocation</span>
+          <span class="result-value" id="breakdownRelocation">$500</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Insurance</span>
+          <span class="result-value" id="breakdownInsurance">$0</span>
+        </div>
+        
+        <div class="result-total">
+          <div class="result-total-label">Total Budget</div>
+          <div class="result-total-value" id="totalAmount">$24,500</div>
+        </div>
+        
+        <div class="calc-notes">
+          💡 This is an estimate. Contact us for a detailed breakdown tailored to your situation.
+        </div>
+        
+        <div class="calculator-export">
+          <button class="export-btn" id="exportPDF">📥 Export PDF</button>
+          <a href="#contact" class="export-btn" style="text-decoration: none; text-align: center;">💬 Get Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS & PARTNERSHIPS -->
+<section class="awards-section" id="awards">
+  <div class="container">
+    <div class="awards-intro">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Trusted <em>Partners</em></h2>
+    </div>
+    
+    <div class="awards-showcase" id="awardsGrid"></div>
+    
+    <div class="partners-grid" id="partnersGrid"></div>
+  </div>
+</section>
+
+<!-- LIFESTYLE & COMMUNITY -->
+<section class="lifestyle-section" id="lifestyle">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Living in <em>Nairobi</em></h2>
+      <p class="section-desc">Discover the lifestyle and community amenities awaiting you</p>
+    </header>
+    
+    <div class="lifestyle-grid">
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">🏫</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Premium Schools</h3>
+          <p class="lifestyle-desc">World-class international schools with diverse curricula and strong expat communities</p>
+        </div>
+      </div>
+      
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">🏥</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Healthcare</h3>
+          <p class="lifestyle-desc">State-of-the-art hospitals and clinics meeting international standards</p>
+        </div>
+      </div>
+      
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">🛍️</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Shopping & Dining</h3>
+          <p class="lifestyle-desc">International brands, local boutiques, and world-class restaurants throughout the city</p>
+        </div>
+      </div>
+      
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">🎭</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Culture & Entertainment</h3>
+          <p class="lifestyle-desc">Vibrant nightlife, art galleries, theater, and cultural events year-round</p>
+        </div>
+      </div>
+      
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">⛳</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Recreation</h3>
+          <p class="lifestyle-desc">Golf clubs, fitness centers, parks, and outdoor activities for all ages</p>
+        </div>
+      </div>
+      
+      <div class="lifestyle-card">
+        <div class="lifestyle-icon">🤝</div>
+        <div class="lifestyle-content">
+          <h3 class="lifestyle-title">Expat Communities</h3>
+          <p class="lifestyle-desc">Thriving international communities with networking events and social groups</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-section" id="newsletter">
+  <div class="container newsletter-container">
+    <div class="newsletter-header">
+      <h2 class="newsletter-title">Get Your Free Relocation Guide</h2>
+      <p class="newsletter-subtitle">Download our comprehensive "Moving to Nairobi: Complete Expat Checklist" - everything you need to know before relocating</p>
+    </div>
+    
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Enter your email" required>
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+    
+    <p class="newsletter-privacy">
+      We respect your privacy. <a href="#privacy">Read our privacy policy</a>.
+    </p>
+    
+    <div class="lead-magnet">
+      <div class="lead-magnet-icon">📋</div>
+      <h3 class="lead-magnet-title">What's Inside the Checklist?</h3>
+      <p class="lead-magnet-desc">Everything you need to prepare for a smooth relocation</p>
+      <div class="lead-magnet-features">
+        <div class="lead-magnet-feature">
+          <div class="lead-magnet-feature-icon">✓</div>
+          <div class="lead-magnet-feature-text">Legal requirements & documentation</div>
+        </div>
+        <div class="lead-magnet-feature">
+          <div class="lead-magnet-feature-icon">✓</div>
+          <div class="lead-magnet-feature-text">Best neighborhoods guide</div>
+        </div>
+        <div class="lead-magnet-feature">
+          <div class="lead-magnet-feature-icon">✓</div>
+          <div class="lead-magnet-feature-text">Cost breakdown & budgeting</div>
+        </div>
+        <div class="lead-magnet-feature">
+          <div class="lead-magnet-feature-icon">✓</div>
+          <div class="lead-magnet-feature-text">Schools, healthcare & amenities</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY & VALUES -->
+<section class="values-section" id="values">
+  <div class="container">
+    <div class="values-intro">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Our <em>Values</em></h2>
+      <p class="section-desc">Luxury with social responsibility</p>
+    </div>
+    
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3 class="value-title">Sustainable Relocation</h3>
+        <p class="value-desc">We minimize environmental impact through responsible practices and local partnerships</p>
+        <div class="value-impact">
+          <span class="impact-number">100+</span> trees planted per relocation
+        </div>
+      </div>
+      
+      <div class="value-card">
+        <div class="value-icon">👨‍👩‍👧‍👦</div>
+        <h3 class="value-title">Community Support</h3>
+        <p class="value-desc">10% of profits go to local education and community development programs</p>
+        <div class="value-impact">
+          <span class="impact-number">500+</span> students supported annually
+        </div>
+      </div>
+      
+      <div class="value-card">
+        <div class="value-icon">💼</div>
+        <h3 class="value-title">Fair Employment</h3>
+        <p class="value-desc">We ensure fair wages and benefits for all team members and local partners</p>
+        <div class="value-impact">
+          <span class="impact-number">50+</span> local jobs created
+        </div>
+      </div>
+    </div>
+    
+    <div class="community-initiatives">
+      <h3 class="initiatives-title">Active Community Initiatives</h3>
+      <div class="initiatives-list">
+        <div class="initiative-item">
+          <div class="initiative-name">Nairobi Youth Scholarship Program</div>
+          <div class="initiative-desc">Providing educational opportunities for underprivileged youth through relocation service proceeds</div>
+        </div>
+        <div class="initiative-item">
+          <div class="initiative-name">Green Relocation Initiative</div>
+          <div class="initiative-desc">Carbon-neutral moving practices and partnerships with environmental organizations</div>
+        </div>
+        <div class="initiative-item">
+          <div class="initiative-name">Women Entrepreneurs Network</div>
+          <div class="initiative-desc">Supporting female business owners through mentorship and relocation support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Start Your <em>Journey</em></h2>
+      <p class="section-desc">Ready to make Nairobi your home? Reach out today</p>
+    </header>
+    
+    <div class="contact-methods">
+      <a href="tel:+254797033513" class="contact-method">
+        <span>📞 +254 797 033 513</span>
+      </a>
+      <a href="https://wa.me/254797033513" class="contact-method" target="_blank">
+        <span>💬 WhatsApp</span>
+      </a>
+      <a href="mailto:kenyarelocationhub@gmail.com" class="contact-method">
+        <span>✉️ Email Us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE CHAT -->
+<div class="chat-container">
+  <div class="chat-bubble" id="chatBubble">
+    <div class="chat-bubble-icon">💬</div>
+  </div>
+  
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <span class="chat-title">Kenya Relocation Hub</span>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+      <button class="chat-send-btn" id="chatSend">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2025 Kenya Relocation Hub & Realty. All rights reserved.</p>
+      <p>Founded by Simon Karuga Njoroge | Serving families, investors & expats</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="scripts-premium.js"></script>
+</body>
+</html>

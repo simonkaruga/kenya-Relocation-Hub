@@ -1,0 +1,222 @@
+/* ========================================
+   VIDEO TESTIMONIALS & HERO VIDEO
+   Premium video hosting & styling
+   ======================================== */
+
+.video-hero {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--dark);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.video-hero iframe,
+.video-hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-base);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+}
+
+.video-play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.8);
+}
+
+.video-play-btn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 28px solid var(--dark);
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  margin-left: 4px;
+}
+
+.video-section {
+  padding: var(--section-gap-lg) 0;
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.02) 0%, rgba(26, 26, 46, 0.05) 100%);
+}
+
+.testimonial-video {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--dark);
+  animation: videoSlideIn 0.8s ease forwards;
+}
+
+.testimonial-video-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.testimonial-video-frame iframe,
+.testimonial-video-frame video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.testimonial-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+.video-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.video-testimonial-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.video-testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.video-thumb {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
+  overflow: hidden;
+}
+
+.video-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.3);
+  transition: all var(--transition-base);
+}
+
+.video-testimonial-card:hover .video-thumb::after {
+  background: rgba(26, 26, 46, 0.1);
+}
+
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all var(--transition-base);
+}
+
+.video-testimonial-card:hover .video-play-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+}
+
+.video-play-icon::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid var(--dark);
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  margin-left: 3px;
+}
+
+.video-info {
+  padding: 1.5rem;
+}
+
+.video-author {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+}
+
+.video-title {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin-bottom: 0.8rem;
+}
+
+.video-duration {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: var(--dark);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .video-play-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .video-play-btn::after {
+    border-left: 20px solid var(--dark);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+  }
+
+  .video-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
