@@ -3,213 +3,584 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kenya Relocation Hub & Realty | Your Gateway to Nairobi</title>
+  <title>Kenya Relocation Hub & Realty | Premium Gateway to Nairobi</title>
   <meta name="description" content="Premium relocation services to Nairobi, Kenya. Expert guidance for families, investors, and expats.">
+  <meta name="theme-color" content="#1A1A2E">
+  
+  <!-- Preload critical fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Cursor follower -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Page loader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">KR</div>
+    <div class="loader-text">Welcome to Nairobi</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+  </div>
+</div>
+
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#home" class="logo"><span class="logo-icon">KR</span><span class="logo-text">Kenya Relocation</span></a>
+    <a href="#home" class="logo">
+      <span class="logo-mark">KR</span>
+      <span class="logo-text">
+        <span class="logo-main">Kenya Relocation</span>
+        <span class="logo-sub">Hub & Realty</span>
+      </span>
+    </a>
+    
     <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#neighborhoods">Areas</a></li>
-      <li><a href="#packages">Packages</a></li>
-      <li><a href="#stories">Stories</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#services" data-text="Services">Services</a></li>
+      <li><a href="#areas" data-text="Areas">Areas</a></li>
+      <li><a href="#packages" data-text="Packages">Packages</a></li>
+      <li><a href="#stories" data-text="Stories">Stories</a></li>
+      <li><a href="#contact" data-text="Start Your Journey">Start Your Journey</a></li>
+      <li><a href="#contact" data-text="Contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn btn-sm">Get Started</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    
+    <a href="#contact" class="nav-cta">
+      <span>Start Journey</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero" id="home">
-  <div class="hero-bg"><img src="images/nairobi.jpg" alt="Nairobi" class="hero-img"><div class="hero-overlay"></div></div>
+  <div class="hero-bg">
+    <img src="images/nairobi.jpg" alt="Nairobi Skyline" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+  </div>
+  
   <div class="hero-content">
-    <span class="badge">Premium Relocation Services</span>
-    <h1><span>Your Gateway</span><span class="gold">to Nairobi</span></h1>
-    <p>Seamless transitions to extraordinary living in Kenya's vibrant capital</p>
-    <div class="hero-btns">
-      <a href="#services" class="btn btn-gold">Explore Services</a>
-      <a href="https://wa.me/254797033513" class="btn btn-outline" target="_blank">💬 WhatsApp</a>
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span>Premium Relocation Services</span>
+      <span class="eyebrow-line"></span>
     </div>
-    <div class="stats">
-      <div><strong>500+</strong><span>Relocations</span></div>
-      <div><strong>98%</strong><span>Satisfaction</span></div>
-      <div><strong>24/7</strong><span>Support</span></div>
+    
+    <h1 class="hero-title">
+      <span class="title-line"><span>Your Gateway</span></span>
+      <span class="title-line"><span class="title-accent">to Nairobi</span></span>
+    </h1>
+    
+    <p class="hero-desc">Where seamless transitions meet extraordinary living experiences in Kenya's most vibrant capital</p>
+    
+    <div class="hero-actions">
+      <a href="#services" class="btn btn-primary">
+        <span>Explore Services</span>
+        <div class="btn-shine"></div>
+      </a>
+      <a href="https://wa.me/254797033513" class="btn btn-glass" target="_blank">
+        <span class="btn-icon">💬</span>
+        <span>WhatsApp Us</span>
+      </a>
+    </div>
+    
+    <div class="hero-stats">
+      <div class="stat" data-count="500">
+        <span class="stat-num">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Relocations</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat" data-count="98">
+        <span class="stat-num">0</span><span class="stat-plus">%</span>
+        <span class="stat-label">Satisfaction</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Support</span>
+      </div>
     </div>
   </div>
+  
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  
+  <div class="hero-social">
+    <a href="https://instagram.com/kenya_relocation_hub" target="_blank">IG</a>
+    <a href="https://wa.me/254797033513" target="_blank">WA</a>
+  </div>
 </section>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Premium Relocation</span><span class="dot">◆</span>
+    <span>Property Search</span><span class="dot">◆</span>
+    <span>Concierge Services</span><span class="dot">◆</span>
+    <span>Investment Guidance</span><span class="dot">◆</span>
+    <span>Expat Support</span><span class="dot">◆</span>
+    <span>Premium Relocation</span><span class="dot">◆</span>
+    <span>Property Search</span><span class="dot">◆</span>
+    <span>Concierge Services</span><span class="dot">◆</span>
+    <span>Investment Guidance</span><span class="dot">◆</span>
+    <span>Expat Support</span><span class="dot">◆</span>
+  </div>
+</div>
 
 <!-- Services -->
-<section class="section" id="services">
+<section class="section services" id="services">
   <div class="container">
-    <header class="section-head"><span class="badge">What We Offer</span><h2>Comprehensive <span class="primary">Relocation Solutions</span></h2></header>
-    <div class="grid-3">
-      <article class="card">
-        <div class="card-icon">🏠</div>
+    <header class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">What We <em>Offer</em></h2>
+      <p class="section-desc">Comprehensive relocation solutions tailored to your unique journey</p>
+    </header>
+    
+    <div class="services-grid">
+      <article class="service-card" data-service="property">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
         <h3>Property Search</h3>
-        <ul><li>✓ Curated property selection</li><li>✓ Verified listings</li><li>✓ Legal documentation</li><li>✓ Virtual tours</li></ul>
-        <a href="#packages" class="card-link">Learn more →</a>
+        <p>Curated selection of premium properties matched to your lifestyle and preferences</p>
+        <ul class="service-list">
+          <li>Verified listings</li>
+          <li>Legal support</li>
+          <li>Virtual tours</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Learn more</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </article>
-      <article class="card featured">
-        <span class="card-badge">Popular</span>
-        <div class="card-icon">📍</div>
+      
+      <article class="service-card featured" data-service="relocation">
+        <div class="featured-tag">Most Popular</div>
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
         <h3>Relocation Concierge</h3>
-        <ul><li>✓ VIP airport pickup</li><li>✓ Temporary accommodation</li><li>✓ SIM & M-Pesa setup</li><li>✓ Neighborhood tours</li></ul>
-        <a href="#packages" class="card-link">Get started →</a>
+        <p>End-to-end support from arrival to complete settlement in your new home</p>
+        <ul class="service-list">
+          <li>VIP airport pickup</li>
+          <li>Accommodation setup</li>
+          <li>Local essentials</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Get started</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </article>
-      <article class="card">
-        <div class="card-icon">👥</div>
+      
+      <article class="service-card" data-service="support">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
         <h3>Ongoing Support</h3>
-        <ul><li>✓ 24/7 local support</li><li>✓ Property management</li><li>✓ Driver services</li><li>✓ Expat networking</li></ul>
-        <a href="#packages" class="card-link">Learn more →</a>
+        <p>Continuous assistance ensuring your Nairobi experience exceeds expectations</p>
+        <ul class="service-list">
+          <li>24/7 support</li>
+          <li>Property management</li>
+          <li>Expat networking</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Learn more</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Why Us -->
-<section class="section bg-light" id="why">
+<!-- About / Why Us -->
+<section class="section about" id="about">
   <div class="container">
-    <div class="split">
-      <div class="split-content">
-        <span class="badge">Why Choose Us</span>
-        <h2>Experience in <span class="primary">Every Detail</span></h2>
-        <p>Founded by Simon Njoroge, a Nairobi native with deep local expertise and international standards. We don't just move you—we welcome you home.</p>
-        <div class="features">
-          <div class="feature"><span class="check">✓</span><div><strong>Local Expertise</strong><p>Born and raised in Nairobi</p></div></div>
-          <div class="feature"><span class="check">✓</span><div><strong>End-to-End Support</strong><p>From inquiry to settlement</p></div></div>
-          <div class="feature"><span class="check">✓</span><div><strong>Transparent Pricing</strong><p>No hidden fees</p></div></div>
+    <div class="about-grid">
+      <div class="about-content">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Why Choose <em>Us</em></h2>
+        <p class="about-lead">Founded by Simon Njoroge, a Nairobi native with deep local expertise and international service standards.</p>
+        <p class="about-text">We don't just relocate you to Nairobi—we welcome you home. Every detail matters, from your first inquiry to years after settlement.</p>
+        
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <div>
+              <strong>Local Expertise</strong>
+              <p>Born and raised in Nairobi with insider knowledge</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <div>
+              <strong>End-to-End Support</strong>
+              <p>From first contact to complete settlement</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <div>
+              <strong>Transparent Pricing</strong>
+              <p>No hidden fees, complete clarity always</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="split-visual">
-        <div class="stat-card c1"><strong>15+</strong><span>Years</span></div>
-        <div class="stat-card c2"><strong>$50M+</strong><span>Properties</span></div>
-        <div class="stat-card c3"><strong>30+</strong><span>Countries</span></div>
+      
+      <div class="about-visual">
+        <div class="visual-card v1"><strong>15+</strong><span>Years Experience</span></div>
+        <div class="visual-card v2"><strong>$50M+</strong><span>Properties Facilitated</span></div>
+        <div class="visual-card v3"><strong>30+</strong><span>Countries Served</span></div>
+        <div class="visual-pattern"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Neighborhoods -->
-<section class="section" id="neighborhoods">
+<!-- Areas -->
+<section class="section areas" id="areas">
   <div class="container">
-    <header class="section-head"><span class="badge">Explore</span><h2>Nairobi's <span class="primary">Best Areas</span></h2></header>
-    <div class="grid-3" id="neighborhoodsGrid"></div>
+    <header class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Explore <em>Nairobi</em></h2>
+      <p class="section-desc">Discover the finest neighborhoods in Kenya's capital</p>
+    </header>
+    
+    <div class="areas-grid" id="areasGrid"></div>
   </div>
 </section>
 
 <!-- Packages -->
-<section class="section bg-light" id="packages">
+<section class="section packages" id="packages">
   <div class="container">
-    <header class="section-head"><span class="badge">Pricing</span><h2>Relocation <span class="primary">Packages</span></h2></header>
-    <div class="grid-3">
-      <article class="price-card">
-        <h3>Setup</h3><p class="price-label">Essential Start</p>
-        <div class="price"><span>$</span>500</div>
-        <ul><li>✓ Airport pickup</li><li>✓ 3 nights accommodation</li><li>✓ SIM & M-Pesa setup</li><li>✓ Area orientation</li></ul>
-        <a href="https://wa.me/254797033513" class="btn btn-outline-dark" target="_blank">Get Started</a>
+    <header class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Investment <em>Packages</em></h2>
+      <p class="section-desc">Transparent pricing with no hidden costs</p>
+    </header>
+    
+    <div class="packages-grid">
+      <article class="package-card">
+        <div class="package-header">
+          <h3>Setup</h3>
+          <p>Essential Start</p>
+        </div>
+        <div class="package-price">
+          <span class="currency">$</span>
+          <span class="amount">500</span>
+        </div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Airport VIP pickup</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>3 nights accommodation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>SIM & M-Pesa setup</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Area orientation tour</li>
+        </ul>
+        <a href="https://wa.me/254797033513" class="btn btn-outline" target="_blank">Get Started</a>
       </article>
-      <article class="price-card premium">
-        <span class="card-badge">Most Popular</span>
-        <h3>Premium</h3><p class="price-label">Complete Solution</p>
-        <div class="price"><span>$</span>1,200</div>
-        <ul><li>✓ Everything in Setup</li><li>✓ Property search & tours</li><li>✓ Dedicated consultant</li><li>✓ Legal guidance</li><li>✓ 3-month support</li></ul>
-        <a href="https://wa.me/254797033513" class="btn btn-gold" target="_blank">Choose Premium</a>
+      
+      <article class="package-card premium">
+        <div class="premium-badge">Most Popular</div>
+        <div class="package-header">
+          <h3>Premium</h3>
+          <p>Complete Solution</p>
+        </div>
+        <div class="package-price">
+          <span class="currency">$</span>
+          <span class="amount">1,200</span>
+        </div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Everything in Setup</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Property search & tours</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated consultant</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Legal & investment guidance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>3-month ongoing support</li>
+        </ul>
+        <a href="https://wa.me/254797033513" class="btn btn-primary" target="_blank">
+          <span>Choose Premium</span>
+          <div class="btn-shine"></div>
+        </a>
       </article>
-      <article class="price-card">
-        <h3>Custom</h3><p class="price-label">Bespoke Services</p>
-        <div class="price custom">Custom</div>
-        <ul><li>✓ Property management</li><li>✓ Driver services</li><li>✓ Luxury tours</li><li>✓ Business setup</li></ul>
-        <a href="https://wa.me/254797033513" class="btn btn-outline-dark" target="_blank">Discuss</a>
+      
+      <article class="package-card">
+        <div class="package-header">
+          <h3>Custom</h3>
+          <p>Bespoke Services</p>
+        </div>
+        <div class="package-price custom">
+          <span class="amount">Custom</span>
+        </div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Property management</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Personal driver services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Luxury tours & experiences</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Business setup consultation</li>
+        </ul>
+        <a href="https://wa.me/254797033513" class="btn btn-outline" target="_blank">Discuss Needs</a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- Stories -->
-<section class="section" id="stories">
+<section class="section stories" id="stories">
   <div class="container">
-    <header class="section-head"><span class="badge">Success</span><h2>Client <span class="primary">Stories</span></h2></header>
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
+    <header class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Success <em>Stories</em></h2>
+      <p class="section-desc">Real results from families and investors who chose us</p>
+    </header>
+    
+    <div class="stories-filters">
+      <button class="filter-btn active" data-filter="all">All Stories</button>
       <button class="filter-btn" data-filter="family">Family</button>
       <button class="filter-btn" data-filter="investment">Investment</button>
       <button class="filter-btn" data-filter="expat">Expat</button>
     </div>
-    <div class="grid-2" id="storiesGrid"></div>
+    
+    <div class="stories-grid" id="storiesGrid"></div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section class="section testimonials-section">
+<section class="section testimonials">
   <div class="container">
-    <header class="section-head light"><span class="badge light">Reviews</span><h2>What Clients Say</h2></header>
-    <div class="testimonial-wrap">
-      <div class="testimonial active"><div class="stars">★★★★★</div><p>"Kenya Relocation Hub made our move absolutely seamless. Simon and his team handled everything with professionalism."</p><cite>— Jane & Michael, London</cite></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>"As a solo entrepreneur, I was nervous. The team's dedication was incredible. Highly recommended!"</p><cite>— Mark Thompson, USA</cite></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>"The neighborhood guides were incredibly helpful. We found exactly what we were looking for."</p><cite>— Sarah & David Kim, Korea</cite></div>
+    <header class="section-header light">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Client <em>Reviews</em></h2>
+    </header>
+    
+    <div class="testimonials-carousel">
+      <div class="testimonial active">
+        <div class="testimonial-content">
+          <div class="quote-mark">"</div>
+          <p>Kenya Relocation Hub made our move absolutely seamless. From airport pickup to finding our dream home in Karen, Simon and his team handled everything with exceptional professionalism.</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Jane & Michael Davidson</strong>
+              <span>Relocated from London, UK</span>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <div class="quote-mark">"</div>
+          <p>As a solo entrepreneur moving to Nairobi, I was nervous about the process. The team's dedication to ensuring I felt at home was incredible. Highly recommended!</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Mark Thompson</strong>
+              <span>Digital Entrepreneur, USA</span>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <div class="quote-mark">"</div>
+          <p>The neighborhood guides were incredibly helpful in understanding Nairobi's different areas. We found exactly what we were looking for in Runda.</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Sarah & David Kim</strong>
+              <span>Family from South Korea</span>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="carousel-nav"><button class="carousel-btn prev">‹</button><div class="carousel-dots"></div><button class="carousel-btn next">›</button></div>
+    
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="carousel-dots"></div>
+      <button class="carousel-btn next" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section bg-light" id="faq">
+<section class="section faq" id="faq">
   <div class="container">
-    <header class="section-head"><span class="badge">FAQ</span><h2>Common <span class="primary">Questions</span></h2></header>
+    <header class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Common <em>Questions</em></h2>
+    </header>
+    
     <div class="faq-grid">
-      <details class="faq"><summary>How long does relocation take?</summary><p>Typically 1-2 weeks. Premium package can expedite to 5-7 days.</p></details>
-      <details class="faq"><summary>Do you handle legal paperwork?</summary><p>Yes, we manage all documentation including contracts and permits.</p></details>
-      <details class="faq"><summary>Can foreigners buy property?</summary><p>Yes, with some restrictions on agricultural land. We guide you through.</p></details>
-      <details class="faq"><summary>What areas do you cover?</summary><p>Runda, Karen, Kilimani, Kileleshwa, Westlands, Lavington, and more.</p></details>
+      <details class="faq-item">
+        <summary>
+          <span>How long does the relocation process take?</span>
+          <div class="faq-icon"><span></span><span></span></div>
+        </summary>
+        <div class="faq-answer">
+          <p>The complete process typically takes 1-2 weeks from arrival to full settlement. With our Premium Package, we can expedite this to as little as 5-7 days depending on your specific requirements.</p>
+        </div>
+      </details>
+      
+      <details class="faq-item">
+        <summary>
+          <span>Do you handle all legal paperwork?</span>
+          <div class="faq-icon"><span></span><span></span></div>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes, absolutely. We manage all legal documentation including property contracts, title deed verification, rental agreements, and work permit assistance with our expert legal team.</p>
+        </div>
+      </details>
+      
+      <details class="faq-item">
+        <summary>
+          <span>Can foreigners purchase property in Kenya?</span>
+          <div class="faq-icon"><span></span><span></span></div>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes, foreign nationals can purchase property in Kenya with certain restrictions on agricultural land. We guide you through the complete process from property selection to title transfer.</p>
+        </div>
+      </details>
+      
+      <details class="faq-item">
+        <summary>
+          <span>What areas of Nairobi do you specialize in?</span>
+          <div class="faq-icon"><span></span><span></span></div>
+        </summary>
+        <div class="faq-answer">
+          <p>We specialize in premium neighborhoods including Runda, Karen, Kilimani, Kileleshwa, Westlands, and Lavington. However, we can assist with any area in Nairobi based on your preferences.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- Currency -->
-<section class="section">
+<section class="section currency-section">
   <div class="container">
-    <div class="currency-box">
-      <h3>Currency Converter</h3>
-      <div class="currency-calc">
-        <div><label>USD</label><input type="number" id="usdInput" placeholder="1000"></div>
-        <span class="arrow">→</span>
-        <div><label>KES</label><div class="result" id="kesResult">Enter amount</div></div>
+    <div class="currency-card">
+      <div class="currency-header">
+        <h3>Currency Converter</h3>
+        <p>Real-time USD to KES exchange rates</p>
       </div>
-      <button class="btn" onclick="convertCurrency()">Convert</button>
+      <div class="currency-body">
+        <div class="currency-input">
+          <label>USD</label>
+          <input type="number" id="usdInput" placeholder="1000">
+        </div>
+        <div class="currency-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="currency-output">
+          <label>KES</label>
+          <div class="currency-result" id="kesResult">Enter amount</div>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="convertCurrency()">
+        <span>Convert Now</span>
+        <div class="btn-shine"></div>
+      </button>
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section class="section contact-section" id="contact">
+<section class="section contact" id="contact">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <span class="badge light">Contact</span>
-        <h2>Start Your <span class="gold">Nairobi Journey</span></h2>
-        <p>Reach out today for a personalized consultation within 24 hours.</p>
-        <div class="contact-links">
-          <a href="tel:+254797033513">📞 +254 797 033 513</a>
-          <a href="mailto:kenyarelocationhub@gmail.com">✉️ kenyarelocationhub@gmail.com</a>
-          <a href="https://wa.me/254797033513" target="_blank">💬 WhatsApp</a>
+        <span class="section-num light">08</span>
+        <h2 class="section-title light">Start Your <em>Journey</em></h2>
+        <p class="contact-desc">Ready to make Nairobi your home? Reach out today and receive a personalized consultation within 24 hours.</p>
+        
+        <div class="contact-methods">
+          <a href="tel:+254797033513" class="contact-method">
+            <div class="method-icon">📞</div>
+            <div class="method-info">
+              <strong>Call Us</strong>
+              <span>+254 797 033 513</span>
+            </div>
+          </a>
+          <a href="mailto:kenyarelocationhub@gmail.com" class="contact-method">
+            <div class="method-icon">✉️</div>
+            <div class="method-info">
+              <strong>Email Us</strong>
+              <span>kenyarelocationhub@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://wa.me/254797033513" class="contact-method" target="_blank">
+            <div class="method-icon">💬</div>
+            <div class="method-info">
+              <strong>WhatsApp</strong>
+              <span>Chat instantly</span>
+            </div>
+          </a>
         </div>
-        <div class="hours"><strong>Hours:</strong> Mon-Fri 8AM-6PM, Sat 9AM-2PM EAT</div>
+        
+        <div class="contact-hours">
+          <strong>Office Hours</strong>
+          <p>Mon - Fri: 8:00 AM - 6:00 PM EAT</p>
+          <p>Saturday: 9:00 AM - 2:00 PM EAT</p>
+          <p>24/7 Emergency Support Available</p>
+        </div>
       </div>
+      
       <form class="contact-form" id="contactForm">
-        <div class="form-row"><input type="text" name="name" placeholder="Full Name" required><input type="email" name="email" placeholder="Email" required></div>
-        <input type="tel" name="phone" placeholder="WhatsApp Number">
-        <select name="interest" required><option value="">What are you looking for?</option><option>Property Search</option><option>Full Relocation</option><option>Consultation</option><option>Investment</option></select>
-        <textarea name="message" placeholder="Tell us about your needs..." rows="4" required></textarea>
-        <button type="submit" class="btn btn-gold full">Send Inquiry</button>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="john@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" name="phone" placeholder="+254 7XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label>Interest</label>
+          <select name="interest" required>
+            <option value="">Select service...</option>
+            <option value="property">Property Search</option>
+            <option value="relocation">Full Relocation</option>
+            <option value="consultation">Consultation Only</option>
+            <option value="investment">Investment Guidance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us about your relocation needs..." rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full">
+          <span>Send Inquiry</span>
+          <div class="btn-shine"></div>
+        </button>
+        <p class="form-note">We typically respond within 2-4 hours during business hours</p>
       </form>
     </div>
   </div>
@@ -218,21 +589,63 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo"><span class="logo-icon">KR</span><span class="logo-text">Kenya Relocation</span></div>
-        <p>Your trusted partner for seamless relocation to Nairobi.</p>
-        <div class="social"><a href="https://instagram.com/kenya_relocation_hub" target="_blank">Instagram</a><a href="https://wa.me/254797033513" target="_blank">WhatsApp</a></div>
+        <a href="#home" class="logo">
+          <span class="logo-mark">KR</span>
+          <span class="logo-text">
+            <span class="logo-main">Kenya Relocation</span>
+            <span class="logo-sub">Hub & Realty</span>
+          </span>
+        </a>
+        <p>Your trusted partner for seamless relocation and premium living experiences in Nairobi, Kenya.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/kenya_relocation_hub" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/254797033513" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="footer-links"><h4>Quick Links</h4><a href="#services">Services</a><a href="#packages">Packages</a><a href="#neighborhoods">Areas</a><a href="#contact">Contact</a></div>
-      <div class="footer-links"><h4>Contact</h4><a href="tel:+254797033513">+254 797 033 513</a><a href="mailto:kenyarelocationhub@gmail.com">Email Us</a></div>
+      
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="#services">Property Search</a>
+        <a href="#services">Relocation</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Consultation</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <a href="#areas">Neighborhoods</a>
+        <a href="#stories">Success Stories</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="tel:+254797033513">+254 797 033 513</a>
+        <a href="mailto:kenyarelocationhub@gmail.com">Email Us</a>
+        <a href="https://wa.me/254797033513" target="_blank">WhatsApp</a>
+      </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Kenya Relocation Hub & Realty. Founded by Simon Karuga Njoroge.</p></div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Kenya Relocation Hub & Realty. All rights reserved.</p>
+      <p>Founded by Simon Karuga Njoroge</p>
+    </div>
   </div>
 </footer>
 
-<a href="https://wa.me/254797033513" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">💬</a>
-<button class="scroll-top" id="scrollTop" aria-label="Top">↑</button>
+<!-- Floating buttons -->
+<a href="https://wa.me/254797033513" class="float-btn whatsapp" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<button class="float-btn scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
 <script src="scripts.js"></script>
 </body>
