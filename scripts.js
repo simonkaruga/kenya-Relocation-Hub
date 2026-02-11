@@ -548,15 +548,31 @@ function initContactForm() {
 
 // ========== PARALLAX EFFECTS ==========
 function initParallaxEffects() {
+  const hero = document.querySelector('.hero-premium');
+  const heroImg = document.querySelector('.hero-bg-img');
+  const heroContent = document.querySelector('.hero-left');
+  const scrollCue = document.querySelector('.hero-scroll-cue');
+
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    
-    // Hero parallax
-    const heroImg = document.querySelector('.hero-img-enhanced');
-    if (heroImg) {
-      heroImg.style.transform = `translateY(${scrolled * 0.5}px)`;
+
+    // Hero image parallax
+    if (heroImg && scrolled < window.innerHeight) {
+      heroImg.style.transform = `scale(${1 + scrolled * 0.0003}) translateY(${scrolled * 0.3}px)`;
     }
-    
+
+    // Fade hero content on scroll
+    if (heroContent && scrolled < window.innerHeight) {
+      const opacity = 1 - (scrolled / (window.innerHeight * 0.6));
+      heroContent.style.opacity = Math.max(0, opacity);
+      heroContent.style.transform = `translateY(${scrolled * 0.15}px)`;
+    }
+
+    // Fade scroll cue quickly
+    if (scrollCue) {
+      scrollCue.style.opacity = Math.max(0, 1 - scrolled / 200);
+    }
+
     // Section badges parallax
     document.querySelectorAll('.section-badge').forEach(badge => {
       if (isInViewport(badge)) {
@@ -566,6 +582,108 @@ function initParallaxEffects() {
       }
     });
   });
+}
+
+// ========== HERO GLASS CARD MOUSE TILT ==========
+function initHeroInteractive() {
+  const hero = document.querySelector('.hero-premium');
+  const cards = document.querySelectorAll('.hero-glass-card');
+  const shapes = document.querySelectorAll('.hero-shapes .shape');
+
+  if (!hero || !cards.length) return;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    // Tilt glass cards based on mouse position
+    cards.forEach((card, i) => {
+      const intensity = 15 + i * 5;
+      const rotateX = y * -intensity;
+      const rotateY = x * intensity;
+      const translateX = x * (10 + i * 8);
+      const translateY = y * (10 + i * 8);
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate(${translateX}px, ${translateY}px)`;
+    });
+
+    // Subtly move shapes
+    shapes.forEach((shape, i) => {
+      const speed = 0.02 + i * 0.01;
+      shape.style.transform = `translate(${x * 30 * speed}px, ${y * 30 * speed}px)`;
+    });
+  });
+
+  // Reset on mouse leave
+  hero.addEventListener('mouseleave', () => {
+    cards.forEach(card => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      setTimeout(() => { card.style.transition = ''; }, 600);
+    });
+    shapes.forEach(shape => {
+      shape.style.transform = '';
+    });
+  });
+}
+
+// ========== HERO COUNTER ANIMATION ==========
+function initHeroCounters() {
+  const glassNumbers = document.querySelectorAll('.glass-card-number');
+  if (!glassNumbers.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent.trim();
+
+        // Handle "24/7" - just reveal with a scale effect
+        if (text.includes('/')) {
+          el.style.opacity = '0';
+          el.style.transform = 'scale(0.5)';
+          el.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          requestAnimationFrame(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'scale(1)';
+          });
+          observer.unobserve(el);
+          return;
+        }
+
+        const isPercent = text.includes('%');
+        const isPlus = text.includes('+');
+        const numericValue = parseInt(text.replace(/[^0-9]/g, ''));
+        if (isNaN(numericValue)) return;
+
+        let current = 0;
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function animate(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          current = Math.floor(eased * numericValue);
+
+          let display = current.toString();
+          if (isPlus) display += '+';
+          if (isPercent) display += '%';
+          el.textContent = display;
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+
+        requestAnimationFrame(animate);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  glassNumbers.forEach(el => observer.observe(el));
 }
 
 function isInViewport(element) {
@@ -620,30 +738,144 @@ function animateCounters() {
   });
 }
 
+// ========== COOKIE CONSENT ==========
+function initCookieConsent() {
+  const banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+
+  // Check if user already made a choice
+  const consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    setTimeout(() => {
+      banner.classList.add('show');
+    }, 2000);
+  }
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  const banner = document.getElementById('cookieConsent');
+  if (banner) banner.classList.remove('show');
+}
+
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'declined');
+  const banner = document.getElementById('cookieConsent');
+  if (banner) banner.classList.remove('show');
+}
+
+// Make cookie functions globally available
+window.acceptCookies = acceptCookies;
+window.declineCookies = declineCookies;
+
+// ========== STAT VALUE COUNTER ANIMATION ==========
+function animateStatValues() {
+  const statValues = document.querySelectorAll('.stat-value');
+
+  statValues.forEach(el => {
+    const target = el.textContent.trim();
+    const isPercent = target.includes('%');
+    const isPlus = target.includes('+');
+    const numericValue = parseInt(target.replace(/[^0-9]/g, ''));
+
+    if (isNaN(numericValue)) return;
+
+    const duration = 2000;
+    const increment = numericValue / (duration / 16);
+    let current = 0;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= numericValue) {
+              current = numericValue;
+              clearInterval(timer);
+            }
+
+            let displayValue = Math.floor(current);
+            if (isPlus) displayValue += '+';
+            if (isPercent) displayValue += '%';
+
+            el.textContent = displayValue;
+          }, 16);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+  });
+}
+
+// ========== TRUST BAR SCROLL ANIMATION ==========
+function initTrustBarAnimation() {
+  const trustItems = document.querySelectorAll('.trust-item');
+  if (!trustItems.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  trustItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'all 0.5s ease';
+    observer.observe(item);
+  });
+}
+
+// ========== DYNAMIC FOOTER YEAR ==========
+function updateFooterYear() {
+  const footerYear = document.querySelector('.footer-bottom p');
+  if (footerYear) {
+    const currentYear = new Date().getFullYear();
+    footerYear.innerHTML = footerYear.innerHTML.replace(/20\d{2}/, currentYear);
+  }
+}
+
 // ========== INITIALIZE ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
   // Core initialization
   initPageLoader();
   initNavigation();
   initScrollToTop();
-  
+
   // Content rendering
   renderCaseStudies('all');
   renderArticles('all');
-  
+
   // Interactive features
   initFilters();
   initTestimonialCarousel();
   initConsultationForm();
   initContactForm();
-  
+  initCookieConsent();
+
   // Visual effects
   initParallaxEffects();
+  initHeroInteractive();
+  initHeroCounters();
   animateCounters();
-  
+  animateStatValues();
+  initTrustBarAnimation();
+
+  // Footer
+  updateFooterYear();
+
   // Fetch exchange rate on load
   fetchExchangeRate();
-  
+
   // Add input animation to currency converter
   const usdInput = document.getElementById('usd');
   if (usdInput) {
@@ -655,7 +887,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+
   // Add smooth reveal for form inputs on focus
   const formInputs = document.querySelectorAll('input, textarea, select');
   formInputs.forEach(input => {
@@ -663,12 +895,12 @@ document.addEventListener('DOMContentLoaded', () => {
       this.parentElement.style.transform = 'scale(1.02)';
       this.parentElement.style.transition = 'transform 0.3s ease';
     });
-    
+
     input.addEventListener('blur', function() {
       this.parentElement.style.transform = 'scale(1)';
     });
   });
-  
+
   // Easter egg: Console message
   console.log('%c🌍 Kenya Relocation Hub & Realty', 'color: #C41E3A; font-size: 24px; font-weight: bold;');
   console.log('%cWelcome to your gateway to Nairobi!', 'color: #D4AF37; font-size: 16px;');
