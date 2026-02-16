@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Carousel Demo - Kenya Relocation Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f3d3e;
+      overflow-x: hidden;
+    }
+
+    .carousel-3d-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+      position: relative;
+    }
+
+    .carousel-3d {
+      width: 400px;
+      height: 500px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate3d 20s infinite linear;
+    }
+
+    .carousel-item {
+      position: absolute;
+      width: 400px;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transition: all 0.5s ease;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-item-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 2rem;
+      color: white;
+    }
+
+    .carousel-item-content h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .carousel-item-content p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Position items in 3D circle */
+    .carousel-item:nth-child(1) {
+      transform: rotateY(0deg) translateZ(600px);
+    }
+
+    .carousel-item:nth-child(2) {
+      transform: rotateY(90deg) translateZ(600px);
+    }
+
+    .carousel-item:nth-child(3) {
+      transform: rotateY(180deg) translateZ(600px);
+    }
+
+    .carousel-item:nth-child(4) {
+      transform: rotateY(270deg) translateZ(600px);
+    }
+
+    @keyframes rotate3d {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .carousel-3d:hover {
+      animation-play-state: paused;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .control-btn {
+      background: rgba(255,255,255,0.2);
+      border: 2px solid white;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .control-btn:hover {
+      background: white;
+      color: #0f3d3e;
+    }
+
+    .title {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .title h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .title p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="title">
+  <h1>Discover Nairobi's Neighborhoods</h1>
+  <p>Explore in 3D</p>
+</div>
+
+<div class="carousel-3d-container">
+  <div class="carousel-3d" id="carousel">
+    <div class="carousel-item">
+      <img src="images/Runda.webp" alt="Runda">
+      <div class="carousel-item-content">
+        <h3>Runda</h3>
+        <p>Ultra-Luxury Diplomatic Enclave</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/karen_webopt.webp" alt="Karen">
+      <div class="carousel-item-content">
+        <h3>Karen</h3>
+        <p>Serene Family Suburb</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/westlands.webp" alt="Westlands">
+      <div class="carousel-item-content">
+        <h3>Westlands</h3>
+        <p>Dynamic Business Hub</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/kilimani_webopt.webp" alt="Kilimani">
+      <div class="carousel-item-content">
+        <h3>Kilimani</h3>
+        <p>Modern Urban Living</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="control-btn" onclick="rotateCarousel(-90)">‹</button>
+  <button class="control-btn" onclick="rotateCarousel(90)">›</button>
+</div>
+
+<script>
+  let currentRotation = 0;
+  const carousel = document.getElementById('carousel');
+
+  function rotateCarousel(degrees) {
+    currentRotation += degrees;
+    carousel.style.animation = 'none';
+    carousel.style.transform = `rotateY(${currentRotation}deg)`;
+    
+    setTimeout(() => {
+      carousel.style.animation = 'rotate3d 20s infinite linear';
+    }, 500);
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    carousel.style.animationPlayState = 'paused';
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    carousel.style.animationPlayState = 'running';
+  });
+</script>
+
+</body>
+</html>

@@ -74,11 +74,30 @@
     <img src="images/hero_super.webp" alt="Relocate to Nairobi">
   </div>
   <div class="hero-content">
-    <h1>Relocate to Nairobi<br>with Confidence</h1>
-    <p>Expert relocation services for professionals and families moving to Kenya's vibrant capital</p>
-    <div class="hero-actions">
+    <h1 class="hero-title-animated">
+      <span class="line" data-aos="fade-up" data-aos-delay="100">Relocate to Nairobi</span>
+      <span class="line" data-aos="fade-up" data-aos-delay="300">with Confidence</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="500">Expert relocation services for professionals and families moving to Kenya's vibrant capital</p>
+    <div class="hero-actions" data-aos="fade-up" data-aos-delay="700">
       <a href="services.html" class="btn-hero-primary">Explore Services</a>
       <a href="contact.html" class="btn-hero-secondary">Schedule Consultation</a>
+    </div>
+  </div>
+  
+  <!-- Floating 3D Elements -->
+  <div class="floating-elements">
+    <div class="float-card" style="top: 15%; left: 10%;" data-speed="2">
+      <div class="card-icon">🏠</div>
+      <div class="card-text">500+ Homes</div>
+    </div>
+    <div class="float-card" style="top: 60%; right: 10%;" data-speed="3">
+      <div class="card-icon">🌍</div>
+      <div class="card-text">30+ Countries</div>
+    </div>
+    <div class="float-card" style="bottom: 20%; left: 15%;" data-speed="2.5">
+      <div class="card-icon">⭐</div>
+      <div class="card-text">15+ Years</div>
     </div>
   </div>
 </section>
@@ -356,6 +375,29 @@ function currentTestimonial(index) {
 
 // Auto-advance every 5 seconds
 setInterval(() => changeTestimonial(1), 5000);
+
+// Parallax effect for floating cards
+window.addEventListener('mousemove', (e) => {
+  const cards = document.querySelectorAll('.float-card');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  
+  cards.forEach((card, index) => {
+    const speed = card.dataset.speed || 2;
+    const moveX = (x - 0.5) * speed * 20;
+    const moveY = (y - 0.5) * speed * 20;
+    card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+});
+
+// Parallax scroll effect for hero image
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const heroImage = document.querySelector('.hero-image img');
+  if (heroImage && scrolled < window.innerHeight) {
+    heroImage.style.transform = `translateY(${scrolled * 0.5}px) scale(${1 + scrolled * 0.0002})`;
+  }
+});
 </script>
 
 </body>
